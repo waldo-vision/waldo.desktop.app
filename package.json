@@ -7,7 +7,7 @@
     "copyright": "Copyright © year WALDO",
     "nsis":{
       "oneClick": false,
-      "allowToChangeInstallationDirectory": true,
+      "allowToChangeInstallationDirectory": false,
       "allowElevation": true,
       "createDesktopShortcut": "always",
       "createStartMenuShortcut": true,
