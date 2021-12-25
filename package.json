@@ -12,14 +12,16 @@
       "createDesktopShortcut": "always",
       "createStartMenuShortcut": true,
       "shortcutName": "WALDO Desktop",
-      "installerIcon":"build/icon.ico",
-      "uninstallerIcon":"build/icon.ico"
-  }
-
+      "license":"LICENSE.md",
+      "artifactName": "WALDO Desktop Installer.exe",
+      "deleteAppDataOnUninstall": true,
+      "uninstallDisplayName": "Uninstall WALDO Desktop"
+    }
   },
+
   "main": "public/electron.js",
   "homepage": "./",
-  "name": "waldo-desktop",
+  "name": "waldo",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
