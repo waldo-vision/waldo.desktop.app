@@ -4,6 +4,7 @@
   "build": {
     "asar": true,
     "appId": "com.waldo.vision",
+    "icon":"icon.ico",
     "productName": "WALDO Desktop",
     "copyright": "Copyright © year WALDO",
     "win": {
