@@ -6,12 +6,6 @@ const { autoUpdater } = require('electron-updater');
 autoUpdater.logger = require('electron-log');
 autoUpdater.logger.transports.file.level = 'info';
 
-const express = require('express')
-const expressApp = express();
-const port = 5001;
-
-expressApp.listen(port);
-
 function createWindow() {
     // Create the browser window.
     const win = new BrowserWindow({
