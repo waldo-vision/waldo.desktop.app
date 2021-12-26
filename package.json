@@ -4,17 +4,31 @@
   "build": {
     "asar": true,
     "appId": "com.waldo.vision",
+    "icon":"icon.ico",
+    "productName": "WALDO Desktop",
     "copyright": "Copyright © year WALDO",
-    "nsis":{
-      "oneClick": false,
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "publish": [
+        "github"
+      ]
+    },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": true,
       "allowToChangeInstallationDirectory": false,
       "allowElevation": true,
       "createDesktopShortcut": "always",
       "createStartMenuShortcut": true,
       "shortcutName": "WALDO Desktop",
-      "license":"LICENSE.md",
+      "license": "LICENSE.md",
       "artifactName": "WALDO Desktop Installer.exe",
       "deleteAppDataOnUninstall": true,
+      "installerIcon": "icon.ico",
+      "runAfterFinish": true,
+      "uninstallerIcon": "uninstallicon.ico",
       "uninstallDisplayName": "Uninstall WALDO Desktop"
     }
   },
@@ -22,8 +36,13 @@
   "main": "public/electron.js",
   "homepage": "./",
   "name": "waldo",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.1.1",
+  "license": "MPL-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/waldo-vision/waldo.desktop.app.git",
+    "vPrefixTagName": true
+  },
   "dependencies": {
     "@craco/craco": "^6.2.0",
     "@testing-library/jest-dom": "^5.14.1",
@@ -31,8 +50,10 @@
     "@testing-library/user-event": "^12.8.3",
     "cors": "^2.8.5",
     "cross-env": "^7.0.3",
-    "express": "^4.17.1",
     "electron-is-dev": "^2.0.0",
+    "electron-log": "^4.4.3",
+    "electron-updater": "^4.6.1",
+    "express": "^4.17.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
@@ -41,9 +62,8 @@
   "scripts": {
     "react-start": "craco start",
     "react-build": "craco build",
-    "electron-build": "electron-builder",
-    "release": "npm run react-build && electron-builder --publish=always",
-    "build": "npm run react-build && npm run electron-build",
+    "release": "yarn run react-build && yarn run electron-builder --publish=always",
+    "build": "yarn run react-build && yarn run electron-builder --win",
     "start": "concurrently \"cross-env BROWSER=none npm run react-start\" \"wait-on http://localhost:3000 && electron .\""
   },
   "eslintConfig": {

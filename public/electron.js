@@ -1,18 +1,16 @@
 const path = require('path');
-
 const { app, BrowserWindow } = require('electron');
 const isDev = require('electron-is-dev');
+const { autoUpdater } = require('electron-updater');
 
-const express = require('express')
-const expressApp = express();
-const port = 5001;
-
-
-expressApp.listen(port);
+autoUpdater.logger = require('electron-log');
+autoUpdater.logger.transports.file.level = 'info';
 
 function createWindow() {
     // Create the browser window.
     const win = new BrowserWindow({
+        title: 'WALDO Desktop',
+        
         width: 800,
         height: 600,
         webPreferences: {
@@ -20,6 +18,7 @@ function createWindow() {
         },
     });
 
+    win.setMenu(null);
     // and load the index.html of the app.
     // win.loadFile("index.html");
     win.loadURL(
@@ -52,3 +51,33 @@ app.on('activate', () => {
         createWindow();
     }
 });
+
+autoUpdater.on('checking-for-update', () => {
+    console.log('Checking for update...');
+});
+
+autoUpdater.on('update-avaliable', (info) => {
+    console.log('Update avaliable.');
+    console.log("Version: " + info.version);
+    console.log("Release Date: " + info.releaseDate);
+});
+
+autoUpdater.on('update-not-available', (info) => {
+    console.log("Running latest version.");
+});
+
+autoUpdater.on('download-progress', (progressObj) => {
+    console.log("Download speed: " + progressObj.bytesPerSecond);
+    console.log("Downloaded: " + progressObj.percent + "%");
+    console.log("Expected total size: " + progressObj.total);
+    console.log("Downloaded: " + progressObj.transferred);
+});
+
+autoUpdater.on('update-downloaded', (info) => {
+    console.log("Update downloaded");
+    autoUpdater.quitAndInstall();
+});
+
+if (!isDev) {
+    autoUpdater.checkForUpdates();
+}
