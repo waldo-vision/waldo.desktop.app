@@ -32,6 +32,7 @@
       "uninstallDisplayName": "Uninstall WALDO Desktop"
     }
   },
+
   "main": "public/electron.js",
   "homepage": "./",
   "name": "waldo",
