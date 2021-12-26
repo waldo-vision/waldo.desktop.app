@@ -9,6 +9,8 @@ autoUpdater.logger.transports.file.level = 'info';
 function createWindow() {
     // Create the browser window.
     const win = new BrowserWindow({
+        title: 'WALDO Desktop',
+        
         width: 800,
         height: 600,
         webPreferences: {
@@ -16,6 +18,7 @@ function createWindow() {
         },
     });
 
+    win.setMenu(null);
     // and load the index.html of the app.
     // win.loadFile("index.html");
     win.loadURL(
