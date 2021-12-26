@@ -1,21 +1,23 @@
-name: Build
+name: Release
+on: [push, pull_request]
 
 jobs:
-  build_on_linux:
+
+  publish_on_linux:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v2       
     - uses: actions/setup-node@master
       with:
         node-version: 14
     - name: install dependencies
-      run: yarn install
-    - name: build publish and deploy
+      run: npm install
+    - name: publish
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: yarn publish
+      run: npm run publish
 
-  build_on_mac:
+  publish_on_mac:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v2
@@ -23,22 +25,22 @@ jobs:
       with:
         node-version: 14
     - name: install dependencies
-      run: yarn install
-    - name: build publish and deploy
+      run: npm install
+    - name: publish
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: yarn publish
+      run: npm run publish
 
-  build_on_win:
+  publish_on_win:
     runs-on: windows-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v2       
     - uses: actions/setup-node@master
       with:
         node-version: 14
     - name: install dependencies
-      run: yarn install
-    - name: build publish and deploy
+      run: npm install
+    - name: publish
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: yarn publish
+      run: npm run publish
