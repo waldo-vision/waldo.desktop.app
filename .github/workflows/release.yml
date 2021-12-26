@@ -11,11 +11,11 @@ jobs:
       with:
         node-version: 14
     - name: install dependencies
-      run: npm install
+      run: yarn install
     - name: publish
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: npm run publish
+      run: npm run release
 
   publish_on_mac:
     runs-on: macos-latest
@@ -25,11 +25,11 @@ jobs:
       with:
         node-version: 14
     - name: install dependencies
-      run: npm install
+      run: yarn install
     - name: publish
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: npm run publish
+      run: npm run release
 
   publish_on_win:
     runs-on: windows-latest
@@ -39,8 +39,8 @@ jobs:
       with:
         node-version: 14
     - name: install dependencies
-      run: npm install
+      run: yarn install
     - name: publish
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: npm run publish
+      run: npm run release
