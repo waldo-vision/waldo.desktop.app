@@ -1,0 +1,20 @@
+name: Publishing Version
+on:
+  push:
+    branches:
+    - master
+
+jobs:
+  build_on_windows:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@master
+      with:
+        node-version: 14
+    - name: Install dependencies
+      run: yarn install
+    - name: publish
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: yarn release
