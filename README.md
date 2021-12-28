@@ -1,28 +1,149 @@
-# waldo.electron.app
+<div id="top"></div>
 
-WALDO's Desktop Application made with [electron](https://www.electronjs.org/) and [react.js](https://reactjs.org/) by the WALDO Team!
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MPL License][license-shield]][license-url]
 
-<img width="1440" alt="2021-10-01-134147" src="https://raw.githubusercontent.com/waldo-vision/docs.waldo.vision/master/static/img/WALDO-banner.png">
 
-## :green_book: Usage
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://github.com/waldo-vision/desktop.waldo.vision">
+    <img src="logo.png" alt="Logo" width="80" height="80">
+  </a>
 
-```sh
-$ git clone https://github.com/sprout2000/electron-react-ts.git
-$ cd electron-react-ts
-$ yarn install && yarn dev
-```
+  <h3 align="center">WALDO Desktop Application</h3>
 
-## :desktop_computer: Commands:
+  <p align="center">
+    This is a desktop application for the WALDO cheat detection software.
+    <br />
+    <a href="https://docs.waldo.vision"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    ·
+    <a href="https://github.com/waldo-vision/desktop.waldo.vision/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/waldo-vision/desktop.waldo.vision/issues">Request Feature</a>
+    ·
+  </p>
+</div>
 
-### :hammer_and_wrench: Development (`yarn start` or `npm run start`)
 
-This command will start up the react application and electron app at the same time. This is only to be used for development. 
 
-### :package: Package (`yarn release` or `npm run release`)
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>🗃️Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about">📌About</a>
+      <ul>
+        <li><a href="#built-with">🏗️Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">📚Getting Started</a>
+    </li>
+    <li><a href="#contributing">💖Contributing</a></li>
+    <li><a href="#license">📏License</a></li>
+    <li><a href="#contact">📤Contact</a></li>
+    <li><a href="#acknowledgments">💗Acknowledgments</a></li>
+  </ol>
+</details>
 
-This command will package your app in production mode.
-You will see that the installer is output to the `dist` directory.
 
-## :copyright: License
 
-Copyright (c) 2021 WALDO Vision 
+<!-- ABOUT THE PROJECT -->
+## 📌About
+
+[![WALDO][product-screenshot]](https://waldo.vision)
+
+A deep learning Artificial Intelligence (A.I.) can detect the human behavioral characteristics of a user within a video game. We plan to train an A.I. to understand how humans play video games via a visual machine learning program. Once the program understands how humans play video games based on gameplay footage, we can then feed it the gameplay footage to determine if the player in the footage is receiving assistance from a 3rd party "hack" or "cheat" program.
+
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+
+### 🏗️Built With
+
+This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+
+* [React.js](https://reactjs.org/)
+* [electron](https://electronjs.org/)
+* [electron-builder](https://www.electron.build/docs/tutorial/quick-start)
+* [craco](https://github.com/gsoft-inc/craco)
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+
+<!-- GETTING STARTED -->
+## 📚Getting Started
+
+To get started with this project, you will need to read the documentation on how to start [contributing to the project.](https://docs.waldo.vision/docs/App-Docs/contributing-to-electron)
+
+
+<!-- CONTRIBUTING -->
+## 💖Contributing
+
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+Don't forget to give the project a star! Thanks again!
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+
+<!-- LICENSE -->
+## 📏License
+
+Distributed under the MPL License. See `LICENSE.md` for more information.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+
+<!-- CONTACT -->
+## 📤Contact
+
+waldo-vision - [@your_twitter](https://twitter.com/waldovision)
+
+Organisation Link: [https://github.com/waldo-vision](https://github.com/waldo-vision)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+
+<!-- ACKNOWLEDGMENTS -->
+## 💗Acknowledgments
+Many thanks to the following projects for the use of their code:
+* [electron](https://electronjs.org/)
+* [electron-builder](https://www.electron.build/docs/tutorial/quick-start)
+* [craco](https://github.com/gsoft-inc/craco)
+* [facebook/react](https://reactjs.org/)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/waldo-vision/waldo.desktop.app?color=green&style=for-the-badge
+[contributors-url]: https://github.com/waldo-vision/waldo.desktop.app/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/waldo-vision/waldo.desktop.app?color=bb38fc&label=FORKS&style=for-the-badge
+[forks-url]: https://github.com/waldo-vision/waldo.desktop.app/network/members
+[stars-shield]: https://img.shields.io/github/stars/waldo-vision?color=%23c76ff2&label=Global%20STARS&style=for-the-badge
+[stars-url]: https://github.com/waldo-vision/waldo.desktop.app/stargazers
+[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
+[issues-url]: https://github.com/waldo-vision/waldo.desktop.app/issues
+[license-shield]: https://img.shields.io/github/license/waldo-vision/waldo.desktop.app?style=for-the-badge
+[license-url]: https://github.com/waldo-vision/waldo.desktop.app/blob/master/LICENSE.md
+[product-screenshot]: screenshot.png
