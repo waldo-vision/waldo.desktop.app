@@ -105,7 +105,7 @@ Distributed under the MPL License. See `LICENSE.md` for more information.
 <!-- CONTACT -->
 ## 📤Contact
 
-waldo-vision - [@your_twitter](https://twitter.com/waldovision)
+waldo-vision - [@waldovision](https://twitter.com/waldovision)
 
 Organisation Link: [https://github.com/waldo-vision](https://github.com/waldo-vision)
 
