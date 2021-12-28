@@ -11,7 +11,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/waldo-vision/desktop.waldo.vision">
-    <img src="logo.png" alt="Logo" width="80" height="80">
+    <img src="logo.png" alt="Logo" width="225" height="225">
   </a>
 
   <h3 align="center">WALDO Desktop Application</h3>
