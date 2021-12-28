@@ -133,7 +133,7 @@ Many thanks to the following projects for the use of their code:
 [forks-url]: https://github.com/waldo-vision/waldo.desktop.app/network/members
 [stars-shield]: https://img.shields.io/github/stars/waldo-vision?color=%23c76ff2&label=Global%20STARS&style=for-the-badge
 [stars-url]: https://github.com/waldo-vision/waldo.desktop.app/stargazers
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
+[issues-shield]: https://img.shields.io/github/issues/waldo-vision/waldo.desktop.app?style=for-the-badge
 [issues-url]: https://github.com/waldo-vision/waldo.desktop.app/issues
 [license-shield]: https://img.shields.io/github/license/waldo-vision/waldo.desktop.app?style=for-the-badge
 [license-url]: https://github.com/waldo-vision/waldo.desktop.app/blob/master/LICENSE.md
