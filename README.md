@@ -10,7 +10,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/waldo-vision/desktop.waldo.vision">
+  <a href="https://waldo.vision">
     <img src="logo.png" alt="Logo" width="225" height="225">
   </a>
 
