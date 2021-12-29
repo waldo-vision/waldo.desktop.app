@@ -23,9 +23,9 @@
     <br />
     <br />
     ·
-    <a href="https://github.com/waldo-vision/desktop.waldo.vision/issues">Report Bug</a>
+    <a href="https://github.com/waldo-vision/waldo.desktop.app/issues">Report Bug</a>
     ·
-    <a href="https://github.com/waldo-vision/desktop.waldo.vision/issues">Request Feature</a>
+    <a href="https://github.com/waldo-vision/waldo.desktop.app/issues">Request Feature</a>
     ·
   </p>
 </div>
@@ -72,7 +72,7 @@ This section should list any major frameworks/libraries used to bootstrap your p
 
 * [React.js](https://reactjs.org/)
 * [electron](https://electronjs.org/)
-* [electron-builder](https://www.electron.build/docs/tutorial/quick-start)
+* [electron-builder](https://www.electron.build/)
 * [craco](https://github.com/gsoft-inc/craco)
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -117,7 +117,7 @@ Organisation Link: [https://github.com/waldo-vision](https://github.com/waldo-vi
 ## 💗Acknowledgments
 Many thanks to the following projects for the use of their code:
 * [electron](https://electronjs.org/)
-* [electron-builder](https://www.electron.build/docs/tutorial/quick-start)
+* [electron-builder](https://www.electron.build/)
 * [craco](https://github.com/gsoft-inc/craco)
 * [facebook/react](https://reactjs.org/)
 
