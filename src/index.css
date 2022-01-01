@@ -1,0 +1,25 @@
+/* ./src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+    @font-face { 
+        font-family: 'Lato';
+        font-weight: 400;
+        src: url('./assets/fonts/Lato-Regular.ttf');
+    }
+
+    @font-face { 
+        font-family: 'Open Sans';
+        font-weight: 400;
+        src: url('./assets/fonts/OpenSans-Regular.ttf');
+    }
+
+    @font-face {
+        font-family: 'Jost';
+        font-weight: 400;
+        src: url('./assets/fonts/Jost-Regular.ttf');
+    }
+}
