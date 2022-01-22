@@ -50,8 +50,8 @@ function createWindow() {
   // Create the browser window.
   const win = new BrowserWindow({
     title: 'WALDO Desktop',
-    minWidth: 800,
-    minHeight: 600,
+    minWidth: 1200,
+    minHeight: 800,
     webPreferences: {
       nodeIntegration: true,
     },
