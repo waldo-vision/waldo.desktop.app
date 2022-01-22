@@ -52,6 +52,7 @@ function createWindow() {
     title: 'WALDO Desktop',
     minWidth: 1200,
     minHeight: 800,
+    frame: false,
     webPreferences: {
       nodeIntegration: true,
     },
@@ -78,7 +79,6 @@ function createWindow() {
   } else {
     autoUpdater.checkForUpdates();
   }
-  win.maximize();
   win.focus();
 
 }

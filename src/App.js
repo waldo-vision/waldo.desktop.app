@@ -21,7 +21,6 @@ function App() {
         <h1 className=' font-open-sans font-bold'>WALDO Desktop</h1>
       </div> */}
       </ThemeProvider>
-      ;
     </div>
   );
 }
