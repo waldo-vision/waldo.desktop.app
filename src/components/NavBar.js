@@ -23,7 +23,7 @@ const TabProps = (label) => {
           transition: 'opacity 0.2s ease-in-out',
           fontWeight: 600,
           '&:hover': {  
-            opacity: 0.8,
+            opacity: 0.9,
           },
         })}
       >
@@ -47,13 +47,12 @@ export default function NavBar() {
           borderColor: 'divider',
           borderRadius: ' 0px 0px 10px 10px',
           boxShadow: '0px 4px 25px rgba(0, 0, 0, 0.1)',
-          pl: 2,
-          pr: 2,
+          px:3,
         }}
       >
         <Grid container justifyContent='space-between' alignItems='baseline'>
           <Grid item xs={6}>
-            <Tabs variant='scrollable' value={value} onChange={handleChange} TabIndicatorProps={{sx: {background:'#000'}}}>
+            <Tabs variant='scrollable' value={value} onChange={handleChange} TabIndicatorProps={{sx:{background:'#000'}}}>
               <Tab label='Home' {...TabProps('Home')} />
               <Tab {...TabProps('My Scans')} />
               <Tab {...TabProps('Settings')} />
@@ -75,14 +74,12 @@ export default function NavBar() {
               >
                 Process Clip
               </Button>
-              <IconButton size='large' sx={{ ml: 3, background:'#E7E7E7', p:1}}>
+              <IconButton size='large' sx={(theme) => ({background: theme.palette.background.bell, ml:3,p:1})}>
                 <BellIcon fontSize='inherit' sx={{
                   p: 0.2
                 }}/>
               </IconButton>
-              <DownArrowIcon sx={{
-                color: '#00000054',
-              }} />
+              <DownArrowIcon sx={(theme) => ({color: theme.palette.background.bell})} />
             </Box>
           </Grid>
         </Grid>

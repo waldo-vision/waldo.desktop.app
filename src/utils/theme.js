@@ -6,6 +6,7 @@ export const lightTheme = createTheme({
     background: {
       paper: '#FFFFFF',
       default: '#D2ECEB',
+      bell: '#E7E7E7',
     },
     primary: {
       main: '#7E79B9',

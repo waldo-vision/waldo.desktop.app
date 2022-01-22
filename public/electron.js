@@ -66,22 +66,21 @@ function createWindow() {
   // Open the DevTools.
   if (isDev) {
     win.webContents.openDevTools();
+    globalShortcut.register('f5', function () {
+      win.reload();
+    });
+    globalShortcut.register('CommandOrControl+R', function () {
+      win.reload();
+    });
+    globalShortcut.register('CommandOrControl+Shift+I', function () {
+      win.webContents.openDevTools();
+    });
   } else {
     autoUpdater.checkForUpdates();
   }
   win.maximize();
   win.focus();
 
-  // Keyboard shortcuts
-  globalShortcut.register('f5', function () {
-    win.reload();
-  });
-  globalShortcut.register('CommandOrControl+R', function () {
-    win.reload();
-  });
-  globalShortcut.register('CommandOrControl+Shift+I', function () {
-    win.webContents.openDevTools();
-  });
 }
 
 // --------------------------------------------------------------
