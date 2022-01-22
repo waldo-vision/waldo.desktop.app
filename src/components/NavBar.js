@@ -9,6 +9,7 @@ import IconButton from '@mui/material/IconButton';
 import Grid from '@mui/material/Grid';
 import BellIcon from '@mui/icons-material/NotificationsNone';
 import DownArrowIcon from '@mui/icons-material/KeyboardArrowDown';
+import './NavBar.css';
 
 const TabProps = (label) => {
   return {
@@ -49,10 +50,11 @@ export default function NavBar() {
           boxShadow: '0px 4px 25px rgba(0, 0, 0, 0.1)',
           px:3,
         }}
+        className='draggable'
       >
         <Grid container justifyContent='space-between' alignItems='baseline'>
           <Grid item xs={6}>
-            <Tabs variant='scrollable' value={value} onChange={handleChange} TabIndicatorProps={{sx:{background:'#000'}}}>
+            <Tabs variant='scrollable' value={value} onChange={handleChange} TabIndicatorProps={{sx:{background:'#000'}}} className='not-draggable'>
               <Tab label='Home' {...TabProps('Home')} />
               <Tab {...TabProps('My Scans')} />
               <Tab {...TabProps('Settings')} />
@@ -71,15 +73,16 @@ export default function NavBar() {
                   px: 3,
                   py: 1,
                 }}
+                className='not-draggable'
               >
                 Process Clip
               </Button>
-              <IconButton size='large' sx={(theme) => ({background: theme.palette.background.bell, ml:3,p:1})}>
+              <IconButton size='large' sx={(theme) => ({background: theme.palette.background.bell, ml:3,p:1})} className='not-draggable'>
                 <BellIcon fontSize='inherit' sx={{
                   p: 0.2
                 }}/>
               </IconButton>
-              <DownArrowIcon sx={(theme) => ({color: theme.palette.background.bell})} />
+              <DownArrowIcon sx={(theme) => ({color: theme.palette.background.bell})} className='not-draggable' />
             </Box>
           </Grid>
         </Grid>
