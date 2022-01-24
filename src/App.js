@@ -1,9 +1,18 @@
 import React, { useState } from 'react';
 import ThemeProvider from '@mui/material/styles/ThemeProvider';
 import CssBaseline from '@mui/material/CssBaseline';
+import { 
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from 'react-router-dom';
 
 import { lightTheme, darkTheme } from './utils/theme';
 import NavBar from './components/NavBar';
+import Main from './pages/Main';
+import Results from './pages/Results';
+import Settings from './pages/Settings';
+import Loading from './pages/Loading';
 
 function App() {
   const [theme, setTheme] = useState(lightTheme);
@@ -16,12 +25,17 @@ function App() {
     <div className='App'>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <NavBar />
-        {/* <div className=' justify-center flex flex-col h-screen items-center font-bold text-6xl'>
-        <h1 className=' font-open-sans font-bold'>WALDO Desktop</h1>
-      </div> */}
+        <Router>
+          <NavBar />
+          <Routes>
+            <Route exact path='/home' element={<Main />} />
+            <Route exact path='/results' element={<Results />} />
+            <Route exact path='/settings' element={<Settings />} />
+            <Route exact path='/' element={<Loading />} />
+            <Route path='/*' element={<Main />} />
+          </Routes>
+        </Router>
       </ThemeProvider>
-      ;
     </div>
   );
 }
