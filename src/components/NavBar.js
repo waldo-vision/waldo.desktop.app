@@ -11,6 +11,8 @@ import BellIcon from '@mui/icons-material/NotificationsNone';
 import DownArrowIcon from '@mui/icons-material/KeyboardArrowDown';
 import './NavBar.css';
 
+import {Link} from 'react-router-dom';
+
 const TabProps = (label) => {
   return {
     sx: { p: 3.5 },
@@ -27,8 +29,15 @@ const TabProps = (label) => {
             opacity: 0.9,
           },
         })}
+        className='not-draggable'
       >
-        {label}
+        {
+          // Check what the label is and link to the relavent component
+          label === 'Home' ? <Link to='/home'>{label}</Link> :
+          label === 'My Scans' ? <Link to='/results'>{label}</Link> :
+          label === 'Settings' ? <Link to='/settings'>{label}</Link> :
+          label
+        }
       </Typography>
     ),
   };
@@ -54,7 +63,7 @@ export default function NavBar() {
       >
         <Grid container justifyContent='space-between' alignItems='baseline'>
           <Grid item xs={6}>
-            <Tabs variant='scrollable' value={value} onChange={handleChange} TabIndicatorProps={{sx:{background:'#000'}}} className='not-draggable'>
+            <Tabs variant='scrollable' value={value} onChange={handleChange} TabIndicatorProps={{sx:{background:'#000'}}}>
               <Tab label='Home' {...TabProps('Home')} />
               <Tab {...TabProps('My Scans')} />
               <Tab {...TabProps('Settings')} />
