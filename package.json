@@ -44,8 +44,7 @@
     "react:build": "craco build",
     "electron:start": "electron .",
     "build:win": "yarn run react:build && yarn run electron-builder --win",
-    "release:win": "yarn run react:build && yarn run build:win --publish=always",
-    "lint": "eslint src --fix"
+    "release:win": "yarn run react:build && yarn run build:win --publish=always"
   },
   "dependencies": {
     "@craco/craco": "^6.2.0",
@@ -69,8 +68,13 @@
     "react-scripts": "4.0.3",
     "web-vitals": "^1.1.2"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
+    "*.{js,jsx,ts,tsx,html}": [
       "prettier --write",
       "eslint --fix"
     ]
@@ -82,7 +86,7 @@
     "electron-builder": "^22.14.5",
     "eslint-config-airbnb": "^19.0.4",
     "husky": "^7.0.4",
-    "lint-staged": "^12.3.1",
+    "lint-staged": "^12.3.2",
     "postcss": "^8.2.13",
     "prettier": "^2.5.1",
     "tailwindcss": "yarn:@tailwindcss/postcss7-compat",

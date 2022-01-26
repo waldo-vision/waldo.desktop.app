@@ -89,6 +89,46 @@ To get started with this project, you will need to read the documentation on how
 
 To contribute to this project, you will need to read the documentation on how to start [contributing to the project.](https://docs.waldo.vision/docs/App-Docs/contributing-to-electron) and read the [global contributing guidelines](https://docs.waldo.vision/docs/contributing). 
 
+### 📐Setup Development Environment
+
+#### 📌Install Dependencies
+
+First you will need to install the dependencies for your project.
+We recommend using [yarn](https://yarnpkg.com/) to install all dependencies. 
+```
+$ yarn install
+```
+#### ⚙️Begin Development
+There are many was to start development with the electron application, you can either start by running the following command:
+```bash
+$ yarn start
+# or 
+$ yarn dev
+```
+or you can run the following command to start the application in development mode:
+```bash
+$ yarn react:start
+$ yarn electron:start
+```
+#### 🧪Run Tests
+To run test or use format your code, you can run the following command:
+```bash
+$ yarn lint
+$ yarn run craco test
+```
+You will need to create your own test file to run the tests, unless there is a pre-existing test file.
+We encourage you to write your own test file to run the tests so that your when you PR your code, you don't need to wait for other developers to run tests on your code.
+
+#### 🏗️Local Building
+To build the application for local development, you can run the following command:
+```bash
+$ yarn build:win
+```
+This will build the application for windows with two new directories:
+`dist` and `build`.
+In the `build` directory, you will find the webpack bundle.
+You will find the packaged application in the `dist` directory and the unpackaged application in the `dist/win-unpacked` directory.
+
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 

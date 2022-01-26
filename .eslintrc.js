@@ -3,7 +3,7 @@ module.exports = {
   plugins: ['react', 'jsx-a11y', 'import'],
   rules: {
     'react/jsx-filename-extension': 'off',
-    'linebreak-style': ['error', 'windows'],
+    'linebreak-style': ['error', 'unix'],
     'import/prefer-default-export': 'off',
     'react/jsx-props-no-spreading': [
       'error',
