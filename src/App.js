@@ -12,12 +12,12 @@ import Settings from './pages/Settings';
 import Loading from './pages/Loading';
 
 function App() {
-  // eslint-disable-next-line no-unused-vars
   const [theme, setTheme] = useState(lightTheme);
 
-  // const changeTheme = (choice) => {
-  //   setTheme(choice === 'light' ? lightTheme : darkTheme);
-  // };
+  // eslint-disable-next-line no-unused-vars
+  const changeTheme = (choice) => {
+    setTheme(choice === 'light' ? lightTheme : darkTheme);
+  };
 
   return (
     <div className="App">
