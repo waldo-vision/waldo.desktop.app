@@ -32,13 +32,16 @@
 // Dependancies
 // ------------------------------------------------------------
 
-const { app, BrowserWindow, globalShortcut } = require('electron');
+const {
+  app, BrowserWindow, globalShortcut, ipcMain,
+} = require('electron');
 
 const path = require('path');
 const isDev = require('electron-is-dev');
 
 const { autoUpdater } = require('electron-updater');
 autoUpdater.logger = require('electron-log');
+
 autoUpdater.logger.transports.file.level = 'info';
 
 // --------------------------------------------------------------
@@ -55,6 +58,7 @@ function createWindow() {
     frame: false,
     webPreferences: {
       nodeIntegration: true,
+      contextIsolation: false,
     },
   });
 
@@ -62,26 +66,39 @@ function createWindow() {
   // and load the index.html of the app.
   // win.loadFile("index.html");
   win.loadURL(
-    isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, '../build/index.html')}`
+    isDev
+      ? 'http://localhost:3000'
+      : `file://${path.join(__dirname, '../build/index.html')}`,
   );
   // Open the DevTools.
   if (isDev) {
-    win.webContents.openDevTools();
-    globalShortcut.register('f5', function () {
+    globalShortcut.register('f5', () => {
       win.reload();
     });
-    globalShortcut.register('CommandOrControl+R', function () {
+    globalShortcut.register('CommandOrControl+R', () => {
       win.reload();
     });
-    globalShortcut.register('CommandOrControl+Shift+I', function () {
+    globalShortcut.register('CommandOrControl+Shift+I', () => {
       win.webContents.openDevTools();
     });
   } else {
     autoUpdater.checkForUpdates();
   }
-  win.maximize();
   win.focus();
 
+  ipcMain.on('minimize-window', () => {
+    win.minimize();
+  });
+  ipcMain.on('maximize-window', () => {
+    if (win.isMaximized()) {
+      win.unmaximize();
+    } else {
+      win.maximize();
+    }
+  });
+  ipcMain.on('close-window', () => {
+    app.quit();
+  });
 }
 
 // --------------------------------------------------------------
@@ -122,20 +139,9 @@ app.on('window-all-closed', () => {
 // Check for updates on startup using the
 //  package.json file with "repository" field,
 // in this case it is the GitHub repository
-autoUpdater.on('checking-for-update', () => {
-  console.log('Checking for update...');
-});
-
-// On update available, download update
-autoUpdater.on('update-avaliable', (info) => {
-  console.log('Update avaliable.');
-  console.log('Version: ' + info.version);
-  console.log('Release Date: ' + info.releaseDate);
-});
 
 // On update downloaded, quit and install
-autoUpdater.on('update-downloaded', (info) => {
-  console.log('Update downloaded');
+autoUpdater.on('update-downloaded', () => {
   autoUpdater.quitAndInstall();
 });
 
