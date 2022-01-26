@@ -10,54 +10,132 @@ import Grid from '@mui/material/Grid';
 import BellIcon from '@mui/icons-material/NotificationsNone';
 import DownArrowIcon from '@mui/icons-material/KeyboardArrowDown';
 import './NavBar.css';
-
 import { Link } from 'react-router-dom';
+
+import MinimiseIcon from '../assets/img/icons/MinimiseIcon';
+import MaximiseIcon from '../assets/img/icons/MaximiseIcon';
+import CloseIcon from '../assets/img/icons/CloseIcon';
 
 const electron = window.require('electron');
 const { ipcRenderer } = electron;
 
-function TabProps(label) {
-  return {
-    sx: { p: 3.5 },
-    disableRipple: true,
-    label: (
-      <Typography
-        variant="body1"
-        sx={(theme) => ({
-          color: theme.palette.text.primary,
-          textTransform: 'none',
-          transition: 'opacity 0.2s ease-in-out',
-          fontWeight: 600,
-          userSelect: 'none',
-          '&:hover': {
-            opacity: 0.9,
-          },
-        })}
-        className="not-draggable"
-      >
-        {label}
-      </Typography>
-    ),
-  };
-}
+const tabs = [
+  {
+    label: 'Home',
+    to: './home',
+  },
+  {
+    label: 'My Scans',
+    to: './results',
+  },
+  {
+    label: 'Settings',
+    to: './settings',
+  },
+];
 
-export default function NavBar() {
+function RenderTabs() {
   const [value, setValue] = useState(0);
 
   const handleChange = (e, newValue) => {
     setValue(newValue);
   };
+  return (
+    <Tabs
+      variant="scrollable"
+      value={value}
+      onChange={handleChange}
+      TabIndicatorProps={{ sx: { background: '#000' } }}
+    >
+      {tabs.map((tab, i) => (
+        <Tab
+          // eslint-disable-next-line react/no-array-index-key
+          key={i}
+          sx={{ p: 3.5 }}
+          disableRipple
+          label={(
+            <Typography
+              variant="body1"
+              sx={(theme) => ({
+                color: theme.palette.text.primary,
+                textTransform: 'none',
+                transition: 'opacity 0.2s ease-in-out',
+                fontWeight: 600,
+                '&:hover': {
+                  opacity: 0.9,
+                },
+              })}
+              className="not-draggable"
+            >
+              {tab.label}
+            </Typography>
+          )}
+          component={Link}
+          to={tab.to}
+        />
+      ))}
+    </Tabs>
+  );
+}
 
-  const minHandler = () => {
-    ipcRenderer.send('minimize-window');
-  };
-  const maxHandler = () => {
-    ipcRenderer.send('maximize-window');
-  };
-  const closeHandler = () => {
-    ipcRenderer.send('close-window');
-  };
+const minHandler = () => {
+  ipcRenderer.send('minimize-window');
+};
+const maxHandler = () => {
+  ipcRenderer.send('maximize-window');
+};
+const closeHandler = () => {
+  ipcRenderer.send('close-window');
+};
 
+const windowControls = [
+  {
+    icon: <MinimiseIcon />,
+    handler: minHandler,
+    background: (theme) => theme.palette.background.windowControls.secondary,
+  },
+  {
+    icon: <MaximiseIcon />,
+    handler: maxHandler,
+    background: (theme) => theme.palette.background.windowControls.secondary,
+  },
+  {
+    icon: <CloseIcon />,
+    handler: closeHandler,
+    background: (theme) => theme.palette.background.windowControls.primary,
+  },
+];
+
+function RenderWindowControls() {
+  return (
+    <Grid
+      container
+      alignItems="center"
+      sx={{
+        width: '100%',
+        display: 'flex',
+        justifyContent: 'flex-end',
+      }}
+    >
+      {windowControls.map((control) => (
+        <Button
+          onClick={control.handler}
+          sx={{
+            py: 1.5,
+            borderRadius: '0',
+            '&:hover': {
+              background: control.background,
+            },
+          }}
+        >
+          {control.icon}
+        </Button>
+      ))}
+    </Grid>
+  );
+}
+
+export default function NavBar() {
   return (
     <Grid
       container
@@ -95,29 +173,7 @@ export default function NavBar() {
         >
           <Grid container justifyContent="space-between" alignItems="center">
             <Grid item xs={6}>
-              <Tabs
-                variant="scrollable"
-                value={value}
-                onChange={handleChange}
-                TabIndicatorProps={{ sx: { background: '#000' } }}
-              >
-                <Tab
-                  label="Home"
-                  {...TabProps('Home')}
-                  component={Link}
-                  to="./home"
-                />
-                <Tab
-                  {...TabProps('My Scans')}
-                  component={Link}
-                  to="./results"
-                />
-                <Tab
-                  {...TabProps('Settings')}
-                  component={Link}
-                  to="./settings"
-                />
-              </Tabs>
+              <RenderTabs />
             </Grid>
             <Grid item xs="auto" alignContent="center">
               <Box sx={{ minWidth: '250px', textAlign: 'right' }}>
@@ -168,103 +224,7 @@ export default function NavBar() {
           width: '17.5%',
         }}
       >
-        <Grid
-          container
-          alignItems="center"
-          sx={{
-            width: '100%',
-            display: 'flex',
-            justifyContent: 'flex-end',
-          }}
-        >
-          <Button
-            onClick={minHandler}
-            sx={{
-              py: 1.5,
-              borderRadius: '0',
-              '&:hover': {
-                background: '#d9d9d9',
-              },
-            }}
-          >
-            <svg
-              width="18"
-              height="15"
-              viewBox="0 0 18 3"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M1 1.59998C1.96884 1.59998 11.857 1.59998 16.68 1.59998"
-                stroke="#1C242F"
-                strokeWidth="1.568"
-                strokeLinecap="round"
-              />
-            </svg>
-          </Button>
-          <Button
-            onClick={maxHandler}
-            sx={{
-              py: 1.5,
-              borderRadius: '0',
-              '&:hover': {
-                background: '#d9d9d9',
-              },
-            }}
-          >
-            <svg
-              width="18"
-              height="15"
-              viewBox="0 0 18 15"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0.783938 2.11201C0.783938 1.67901 1.13495 1.32801 1.56794 1.32801H8.62393H15.6799C16.1129 1.32801 16.4639 1.67901 16.4639 2.112V13.2448C16.4639 13.6778 16.1129 14.0288 15.6799 14.0288H1.56794C1.13495 14.0288 0.783938 13.6778 0.783938 13.2448V2.11201Z"
-                stroke="#1C242F"
-                strokeWidth="1.568"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M16.2687 2.896H1.99994"
-                stroke="#1C242F"
-                strokeWidth="1.568"
-                strokeLinecap="round"
-              />
-            </svg>
-          </Button>
-          <Button
-            onClick={closeHandler}
-            sx={{
-              py: 1.5,
-              borderRadius: '0',
-              '&:hover': {
-                background: '#ff7569',
-              },
-            }}
-          >
-            <svg
-              width="18"
-              height="15"
-              viewBox="0 0 14 13"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M1.08337 12.1437C1.76845 11.4586 8.76043 4.46662 12.1708 1.05626"
-                stroke="#1C242F"
-                strokeWidth="1.568"
-                strokeLinecap="round"
-              />
-              <path
-                d="M1.13904 1.112C1.82411 1.79708 8.8161 8.78906 12.2265 12.1994"
-                stroke="#1C242F"
-                strokeWidth="1.568"
-                strokeLinecap="round"
-              />
-            </svg>
-          </Button>
-        </Grid>
+        <RenderWindowControls />
       </Grid>
     </Grid>
   );

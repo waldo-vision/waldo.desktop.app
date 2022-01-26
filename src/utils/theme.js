@@ -7,6 +7,10 @@ export const lightTheme = createTheme({
       paper: '#FFFFFF',
       default: '#D2ECEB',
       bell: '#E7E7E7',
+      windowControls: {
+        primary: '#ff7569',
+        secondary: '#DFDFDF',
+      },
     },
     primary: {
       main: '#7E79B9',
@@ -35,6 +39,10 @@ export const darkTheme = createTheme({
       paper: '#404040',
       default: '#161822',
       bell: '#474747',
+      windowControls: {
+        primary: '#ff7569',
+        secondary: '#3A3A3A',
+      },
     },
     primary: {
       main: '#7E79B9',
