@@ -117,8 +117,10 @@ function RenderWindowControls() {
         justifyContent: 'flex-end',
       }}
     >
-      {windowControls.map((control) => (
+      {windowControls.map((control, i) => (
         <Button
+          // eslint-disable-next-line react/no-array-index-key
+          key={i}
           onClick={control.handler}
           sx={{
             py: 1.5,
