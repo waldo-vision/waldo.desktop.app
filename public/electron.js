@@ -55,7 +55,10 @@ function createWindow() {
     title: 'WALDO Desktop',
     minWidth: 1200,
     minHeight: 800,
+    width: 1300,
+    height: 1000,
     frame: false,
+    show: false,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
@@ -70,6 +73,9 @@ function createWindow() {
       ? 'http://localhost:3000'
       : `file://${path.join(__dirname, '../build/index.html')}`,
   );
+  win.once('ready-to-show', () => {
+    win.show();
+  });
   // Open the DevTools.
   if (isDev) {
     globalShortcut.register('f5', () => {
@@ -84,7 +90,6 @@ function createWindow() {
   } else {
     autoUpdater.checkForUpdates();
   }
-  win.focus();
 
   ipcMain.on('minimize-window', () => {
     win.minimize();
@@ -109,26 +114,18 @@ function createWindow() {
 
 // This method will be called when Electron has finished initialization and is
 // ready to create browser windows. Some APIs can only be used after this event occurs.
-app.whenReady().then(createWindow);
-
-// This method will be called when Electron has finished,
-// When another instance of node-webkit is launched
-// this method is called again.
-// Force single application instance
 const gotTheLock = app.requestSingleInstanceLock();
 
 if (!gotTheLock) {
   app.quit();
 }
 
-// Quit when all windows are closed, except on macOS. There, it's common
-// for applications and their menu bar to stay active until the user quits
-// explicitly with Cmd + Q.
-app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') {
-    app.quit();
-  }
-});
+app.whenReady().then(createWindow);
+
+// This method will be called when Electron has finished,
+// When another instance of node-webkit is launched
+// this method is called again.
+// Force single application instance
 
 // --------------------------------------------------------------
 
