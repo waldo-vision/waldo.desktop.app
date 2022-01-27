@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ThemeProvider from '@mui/material/styles/ThemeProvider';
 import CssBaseline from '@mui/material/CssBaseline';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 
 // eslint-disable-next-line no-unused-vars
 import { lightTheme, darkTheme } from './utils/theme';
