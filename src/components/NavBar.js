@@ -42,7 +42,6 @@ function RenderTabs() {
   };
   return (
     <Tabs
-      variant="scrollable"
       value={value}
       onChange={handleChange}
       TabIndicatorProps={{ sx: { background: '#000' } }}
@@ -163,7 +162,7 @@ export default function NavBar() {
           WALDO
         </Typography>
       </Grid>
-      <Box sx={{ minWidth: '550px', width: '65%', m: '0 auto' }}>
+      <Box sx={{ width: '65%', m: '0 auto' }}>
         <Paper
           sx={{
             borderColor: 'divider',

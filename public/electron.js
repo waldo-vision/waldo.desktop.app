@@ -55,8 +55,6 @@ function createWindow() {
     title: 'WALDO Desktop',
     minWidth: 1200,
     minHeight: 800,
-    width: 1300,
-    height: 1000,
     frame: false,
     show: false,
     webPreferences: {
