@@ -116,8 +116,8 @@ To run test or use format your code, you can run the following command:
 $ yarn lint
 $ yarn run craco test
 ```
-You will need to create your own test file to run the tests, unless there is a pre-existing test file.
-We encourage you to write your own test file to run the tests so that your when you PR your code, you don't need to wait for other developers to run tests on your code.
+You will need to create your own test file to run the tests unless there is a pre-existing test file.
+We encourage you to write your test file to run the tests so that when you PR your code, you don't need to wait for other developers to run tests on your code.
 
 #### 🏗️Local Building
 To build the application for local development, you can run the following command:
