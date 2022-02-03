@@ -29,7 +29,7 @@ const config = {
   },
   devServer: {
     static: path.join(rootPath, "dist/renderer"),
-    dev: {
+    devMiddleware: {
       publicPath: "/",
     },
     port: 4000,
