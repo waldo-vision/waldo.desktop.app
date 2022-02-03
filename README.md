@@ -108,12 +108,6 @@ or you can run the following command to start the application in development mod
 $ yarn dev:react
 $ yarn dev:electron
 ```
-#### 🧪Run Tests
-To run test or use format your code, you can run the following command:
-```bash
-$ yarn lint
-$ yarn run craco test
-```
 You will need to create your own test file to run the tests, unless there is a pre-existing test file.
 We encourage you to write your own test file to run the tests so that your when you PR your code, you don't need to wait for other developers to run tests on your code.
 
