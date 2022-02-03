@@ -101,14 +101,12 @@ $ yarn install
 #### ⚙️Begin Development
 There are many was to start development with the electron application, you can either start by running the following command:
 ```bash
-$ yarn start
-# or 
 $ yarn dev
 ```
 or you can run the following command to start the application in development mode:
 ```bash
-$ yarn react:start
-$ yarn electron:start
+$ yarn dev:react
+$ yarn dev:electron
 ```
 #### 🧪Run Tests
 To run test or use format your code, you can run the following command:
