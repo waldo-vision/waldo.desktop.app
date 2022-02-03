@@ -4,7 +4,7 @@ import { Configuration } from "webpack";
 const rootPath = path.resolve(__dirname, "..");
 
 const config: Configuration = {
-  mode: "development",
+  mode: "production",
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
   },
