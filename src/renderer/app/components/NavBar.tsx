@@ -20,7 +20,12 @@ import './NavBar.css';
 const electron = window.require('electron');
 const { ipcRenderer } = electron;
 
-const tabs = [
+type Tab = {
+  label: string;
+  to: string;
+};
+
+const tabs: Tab[] = [
   {
     label: 'Home',
     to: './home',

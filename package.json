@@ -30,6 +30,7 @@
     "@emotion/styled": "^11.6.0",
     "@mui/icons-material": "^5.3.1",
     "@mui/material": "^5.4.0",
+    "@mui/types": "^7.1.0",
     "electron-updater": "^4.6.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -68,6 +69,13 @@
     "copyright": "Copyright © year WALDO",
     "asar": true,
     "icon": "logo.ico",
+    "directories": {
+      "output": "packages"
+    },
+    "files": [
+      "package.json",
+      "dist/**"
+    ],
     "win": {
       "target": [
         "nsis"
