@@ -179,37 +179,38 @@ export default function NavBar() {
             <Grid item xs={6}>
               <RenderTabs />
             </Grid>
-            <Grid container xs="auto" alignContent="center">
-              <Button
-                color="success"
-                variant="contained"
-                sx={{
-                  color: 'white',
-                  borderRadius: '10px',
-                  textTransform: 'none',
-                  fontWeight: 400,
-                  py: 1,
-                  px: 3,
-                }}
-                className="not-draggable"
-              >
-                Process Clip
-              </Button>
-              <IconButton
-                size="medium"
-                sx={(theme) => ({
-                  background: theme.palette.comp.nav.bell.bg,
-                  color: theme.palette.comp.nav.bell.color,
-                  ml: 3,
-                })}
-                className="not-draggable"
-              >
-                <BellIcon fontSize="inherit" />
-              </IconButton>
-              <KeyboardArrowDown fontSize="medium" sx={(theme) => ({
-                  color: theme.palette.comp.nav.bell.bg,
-                  mt:1
-                })} />
+            <Grid item xs="auto">
+              <Grid container alignItems="center">
+                <Button
+                  color="success"
+                  variant="contained"
+                  sx={{
+                    color: 'white',
+                    borderRadius: '10px',
+                    textTransform: 'none',
+                    fontWeight: 400,
+                    py: 1,
+                    px: 3,
+                  }}
+                  className="not-draggable"
+                >
+                  Process Clip
+                </Button>
+                <IconButton
+                  size="medium"
+                  sx={(theme) => ({
+                    background: theme.palette.comp.nav.bell.bg,
+                    color: theme.palette.comp.nav.bell.color,
+                    ml: 3,
+                  })}
+                  className="not-draggable"
+                >
+                  <BellIcon fontSize="inherit" />
+                </IconButton>
+                <KeyboardArrowDown fontSize="medium" sx={(theme) => ({
+                    color: theme.palette.comp.nav.bell.bg,
+                  })} />
+              </Grid>
             </Grid>
           </Grid>
         </Paper>

@@ -41,7 +41,9 @@ const config = {
     filename: "js/[name].js",
     publicPath: "./",
   },
-  plugins: [new HtmlWebpackPlugin()],
+  plugins: [new HtmlWebpackPlugin({
+    title:"WALDO Desktop"
+  })],
 };
 
 export default config;
