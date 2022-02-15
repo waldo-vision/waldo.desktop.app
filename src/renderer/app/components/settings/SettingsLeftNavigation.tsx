@@ -36,7 +36,14 @@ export default function SettingsLeftNavigation() {
       orientation="vertical"
       variant="fullWidth"
       onChange={handleChange}
-      
+      indicatorColor={'secondary'}
+      TabIndicatorProps={{
+        style: {
+          width: '100%',
+          borderRadius: '10px',
+          zIndex: 0,
+        },
+      }}
     >
       {SettingsTabList.map((tab, index) => (
         <Tab
@@ -45,14 +52,15 @@ export default function SettingsLeftNavigation() {
           component={Link}
           to={tab.path}
           label={
-            <Typography 
-              variant="body1" 
-              sx={{ 
+            <Typography
+              variant="body1"
+              sx={{
                 textTransform: 'none',
                 fontWeight: 'bold',
+                zIndex: 1,
               }}
             >
-                  {tab.label}
+              {tab.label}
             </Typography>
           }
         />
