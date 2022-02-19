@@ -19,17 +19,23 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className="App" style={{height: '100vh'}}>
       <ThemeProvider theme={theme}> 
         <CssBaseline />
         <Router>
-          <NavBar />
-          <Routes>
-            <Route path="/home" element={<Main />} />
-            <Route path="/results" element={<Results />} />
-            <Route path="/settings" element={<Settings />} />
-            <Route path="/" element={<Loading />} />
-          </Routes>
+          <div style={{ display: 'flex', flexDirection: 'column', height: '100vh'}}>
+            <NavBar />
+            <div style={{ display: 'flex', 
+              flex: '1 1 auto',
+            }}>
+              <Routes >
+                <Route path="/home" element={<Main />} />
+                <Route path="/results" element={<Results />} />
+                <Route path="/settings" element={<Settings />} />
+                <Route path="/" element={<Loading />} />
+              </Routes>
+            </div>
+          </div>
         </Router> 
       </ThemeProvider> 
     </div>
