@@ -1,149 +1,92 @@
-import { Grid, Box, Paper, styled } from '@mui/material';
+// import { Grid, Box, Paper, styled } from '@mui/material';
 import React from 'react';
 
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: 'center',
-  color: theme.palette.text.secondary,
-}));
-
-export default function Main() {
+const DashboardContainer = () => {
   return (
     <>
       <div
+        className="dashboard-container-grid"
         style={{
-          flex: '1 1 auto',
-          margin: '1em',
-          // backgroundColor: 'blue',
-          // flexDirection: 'row',
-          // height: '80%'
+          display: 'grid',
+          gridTemplate: '100% / 55% 45%',
+          height: '100%',
         }}
       >
         <div
-          className="block-1"
+          className="dashboard-container-subcontainer-grid"
           style={{
-            height: '100%',
-            backgroundColor: 'pink',
+            backgroundColor: 'blue',
             display: 'grid',
-            gridTemplate: '85% 15% / 100%',
-
-            // flex: '1 1 auto',
-            // flexGrow: '3',
-            // height: '80%'
+            gridTemplate: '3fr 1fr 4fr / 100%',
           }}
         >
           <div
+            className="dashboard-container-subcontainer-subcontainer-grid"
             style={{
-              // height: '100%',
-              backgroundColor: 'purple',
               display: 'grid',
-              gridTemplate: '100% / 6fr 4fr',
+              gridTemplate: '100% / 60% 40%',
+            }}
+          ></div>
+        </div>
+        <div
+          className="dashboard-container-subcontainer-grid"
+          style={{
+            backgroundColor: 'cyan',
+            display: 'grid',
+            gridTemplate: '55% 45% / 100%',
+          }}
+        >
+          <div />
+          <div
+            className="dashboard-container-subcontainer-subcontainer-grid"
+            style={{
+              display: 'grid',
+              gridTemplate: '100% / 50% 50%',
             }}
           >
             <div
               style={{
-                backgroundColor: 'white',
                 display: 'grid',
-                gridTemplate: '100% / 1fr 7fr',
+                gridTemplate: ' 50% 50% / 100%',
               }}
-            >
-              <div className="left-spacer" style={{ backgroundColor: 'grey' }} />
-              <div
-                style={{
-                  backgroundColor: 'cyan',
-                  margin: '1em',
-                  display: 'grid',
-                  gridTemplate: '3fr 1fr 4fr / 100%',
-                }}
-              >
-                <div
-                  style={{
-                    backgroundColor: 'purple',
-                    display: 'grid',
-                    gridTemplate: '100% / 3fr 1fr',
-                  }}
-                >
-                  <div style={{ backgroundColor: 'red' }} />
-                  <div style={{ backgroundColor: 'cyan' }}></div>
-                </div>
-                <div style={{ backgroundColor: 'pink' }} />
-                <div
-                  style={{
-                    backgroundColor: 'grey',
-                    display: 'grid',
-                    gridTemplate: ' repeat(4, 1fr) / 100% ',
-                    paddingTop: '1em',
-                  }}
-                >
-                  <div style={{ backgroundColor: 'purple' }}></div>
-                  <div style={{ backgroundColor: 'pink' }}></div>
-                  <div style={{ backgroundColor: 'purple' }}></div>
-                  <div style={{ backgroundColor: 'pink' }}></div>
-                </div>
-              </div>
-            </div>
-            <div
-              style={{
-                backgroundColor: 'yellow',
-                display: 'grid',
-                gridTemplate: '100%/ 7fr 1fr',
-              }}
-            >
-              <div
-                className="right-block-container"
-                style={{
-                  backgroundColor: 'pink',
-                  margin: '1em',
-                  display: 'grid',
-                  gridTemplate: '65% 35% / 100%',
-                }}
-              >
-                <div className="right-block-top-container" style={{ backgroundColor: 'purple' }}></div>
-                <div
-                  className="right-block-bot-container"
-                  style={{
-                    backgroundColor: 'red',
-                    display: 'grid',
-                    gridTemplate: '100% / repeat(2, 50%)',
-                  }}
-                >
-                  <div
-                    className="right-block-bot-left-container"
-                    style={{
-                      backgroundColor: 'grey',
-                      display: 'grid',
-                      gridTemplate: 'repeat(2, 50%) / 100%',
-                    }}
-                  >
-                    <div className="right-block-bot-left-container-item" style={{ backgroundColor: 'cyan' }}></div>
-                    <div className="right-block-bot-left-container-item" style={{ background: 'green' }}></div>
-                  </div>
-                  <div
-                    className="right-block-bot-right-container"
-                    style={{
-                      backgroundColor: 'blue',
-                    }}
-                  ></div>
-                </div>
-              </div>
-              <div
-                className="right-spacer"
-                style={{
-                  backgroundColor: 'grey',
-                }}
-              ></div>
-            </div>
+            ></div>
           </div>
-
-          <div
-            style={{
-              backgroundColor: 'blue',
-            }}
-          />
         </div>
       </div>
+    </>
+  );
+};
+
+const Container = () => {
+  return (
+    <>
+      <div
+        className="container-layer-0"
+        style={{
+          display: 'flex',
+          flex: '1 1 auto',
+          padding: '2em',
+
+          // backgroundColor: 'pink',
+          justifyContent: 'center',
+          flexDirection: 'column',
+          alignItems: 'center',
+          // gridTemplate: '85% 15% / 100%',
+        }}
+      >
+        <div style={{ backgroundColor: 'purple', height: '90%', width: '80%' }}>
+          <DashboardContainer />
+        </div>
+        <div style={{ backgroundColor: 'white', height: '10%', width: '100%', opacity: '0.2' }} />
+      </div>
+    </>
+  );
+};
+
+export default function Main() {
+  return (
+    <>
+      <Container />
     </>
   );
 }
