@@ -6,7 +6,7 @@
   "plugins": ["prettier"],
   "rules": {
     "allowJs": 2,
-    "allowSyntheticDefaultImports": 0,
+    "allowSyntheticDefaultImports": 1,
     "skipLibCheck": 1,
     "esModuleInterop": 1,
     "strict": 2,

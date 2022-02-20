@@ -14,8 +14,11 @@ declare module '@mui/material/styles/createPalette' {
         windowControls: {
             primary: string
             secondary: string
-            icon: string
         }
+      },
+      settings:{
+        bg: string,
+        textField: string
       }
     };
   }
@@ -30,6 +33,10 @@ declare module '@mui/material/styles/createPalette' {
             primary?: string
             secondary?: string
         }
+      },
+      settings:{
+        bg?: string,
+        textField?: string
       }
     };
   }
