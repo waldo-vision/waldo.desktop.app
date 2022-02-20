@@ -51,7 +51,7 @@ function createWindow() {
   win.once('ready-to-show', () => {
     win.show();
   });
-
+  
   ipcMain.on('minimize-window', () => {
     win.minimize();
   });

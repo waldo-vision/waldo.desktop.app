@@ -10,10 +10,10 @@ import Grid from '@mui/material/Grid';
 import BellIcon from '@mui/icons-material/NotificationsNone';
 import { Link } from 'react-router-dom';
 
+import { KeyboardArrowDown } from '@mui/icons-material';
 import MinimiseIcon from '../assets/img/icons/MinimiseIcon';
 import MaximiseIcon from '../assets/img/icons/MaximiseIcon';
 import CloseIcon from '../assets/img/icons/CloseIcon';
-import { KeyboardArrowDown } from '@mui/icons-material';
 
 import './NavBar.css';
 
@@ -41,20 +41,20 @@ const tabs: Tab[] = [
 ];
 
 function RenderTabs() {
-  const [value, setValue] = useState(0);
+  const [windowPage, setWindowPage] = useState<number>(0);
 
   const handleChange = (_: any, newValue: React.SetStateAction<number>) => {
-    setValue(newValue);
+    setWindowPage(newValue);
   };
   return (
     <Tabs
-      value={value}
+      value={windowPage}
       onChange={handleChange}
     >
       {tabs.map((tab, i) => (
         <Tab
           key={i}
-          sx={{ p: 3.5 }}
+          sx={{ py: 3.5, px: 2.5 }}
           disableRipple
           label={(
             <Typography
@@ -91,23 +91,25 @@ const closeHandler = () => {
   ipcRenderer.send('close-window');
 };
 
-const windowControls = [
+type windowHandlers = {
+  svgIcon: React.ReactElement;
+  handler: () => void;
+};
+
+const windowControls: windowHandlers[] = [
   {
-    icon: <MinimiseIcon />,
+    svgIcon: <MinimiseIcon />,
     handler: minHandler,
-    background: (theme: { palette: { comp: { nav: { windowControls: { secondary: string; }; }; }; }; }) => theme.palette.comp.nav.windowControls.secondary
   },
   {
-    icon: <MaximiseIcon />,
+    svgIcon: <MaximiseIcon />,
     handler: maxHandler,
-    background: (theme: { palette: { comp: { nav: { windowControls: { secondary: string; }; }; }; }; }) => theme.palette.comp.nav.windowControls.secondary
   },
   {
-    icon: <CloseIcon />,
+    svgIcon: <CloseIcon />,
     handler: closeHandler,
-    background: (theme: { palette: { comp: { nav: { windowControls: { primary: string; }; }; }; }; }) => theme.palette.comp.nav.windowControls.primary
-  },
-];
+  }
+]
 
 function RenderWindowControls() {
   return (
@@ -116,23 +118,30 @@ function RenderWindowControls() {
       alignItems="center"
       sx={{
         width: '100%',
-        display: 'flex',
         justifyContent: 'flex-end',
+        
       }}
     >
       {windowControls.map((control, i) => (
         <Button
           key={i}
           onClick={control.handler}
-          sx={{
+          sx={(theme) => ({
+            // Check if the button is the last one
+            '&:last-child': {
+              '&:hover': {
+                background: theme.palette.comp.nav.windowControls.primary,
+              },
+            },
+            '&:hover': {
+              background: theme.palette.comp.nav.windowControls.secondary,
+            },
             py: 1.5,
             borderRadius: '0',
-            '&:hover': {
-              background: control.background,
-            },
-          }}
+            
+          })}
         >
-          {control.icon}
+          {control.svgIcon}
         </Button>
       ))}
     </Grid>
@@ -176,7 +185,7 @@ export default function NavBar() {
           className="draggable"
         >
           <Grid container justifyContent="space-between" alignItems="center">
-            <Grid item xs={6}>
+            <Grid item xs='auto'>
               <RenderTabs />
             </Grid>
             <Grid item xs="auto">
@@ -197,7 +206,6 @@ export default function NavBar() {
                   Process Clip
                 </Button>
                 <IconButton
-                  size="medium"
                   sx={(theme) => ({
                     background: theme.palette.comp.nav.bell.bg,
                     color: theme.palette.comp.nav.bell.color,
