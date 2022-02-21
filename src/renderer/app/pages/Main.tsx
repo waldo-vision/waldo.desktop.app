@@ -44,7 +44,7 @@ const DashboardContainer = () => {
                   color: theme.palette.text.secondary,
                 })}
               >
-                Leqitside
+                Username
               </Typography>
               <Typography
                 variant="h6"
@@ -69,7 +69,26 @@ const DashboardContainer = () => {
                   borderRadius: '10px',
                 })}
               >
-                <Box></Box>
+                <Box
+                  sx={(theme) => ({
+                    height: '100%',
+                  })}
+                >
+                  <div
+                    style={{
+                      display: 'grid',
+                      gridTemplate: '1fr 5fr / 100%',
+                      height: '100%',
+                      padding: '1em',
+                    }}
+                  >
+                    <div>
+                      <Typography>Pending Scans</Typography>
+                      {/* <Typography>Up to 4 pending videos at a time</Typography> */}
+                    </div>
+                    <div></div>
+                  </div>
+                </Box>
               </Paper>
             </div>
           </div>
