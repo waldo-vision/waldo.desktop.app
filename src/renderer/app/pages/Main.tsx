@@ -1,11 +1,11 @@
 // import { Grid, Box, Paper, styled } from '@mui/material';
-import { Box, Paper, Typography } from '@mui/material';
+import { Box, Paper, Typography, Grid } from '@mui/material';
 import React from 'react';
 
 const DashboardContainer = () => {
   return (
     <>
-      <div
+      <Grid
         className="dashboard-container-grid"
         style={{
           display: 'grid',
@@ -13,7 +13,7 @@ const DashboardContainer = () => {
           height: '100%',
         }}
       >
-        <div
+        <Grid
           className="dashboard-container-subcontainer-grid"
           style={{
             // backgroundColor: 'blue',
@@ -22,14 +22,14 @@ const DashboardContainer = () => {
             paddingBottom: '1em',
           }}
         >
-          <div
+          <Grid
             className="dashboard-container-subcontainer-subcontainer-grid"
             style={{
               display: 'grid',
               gridTemplate: '100% / 60% 40%',
             }}
           >
-            <div>
+            <Grid>
               <Typography
                 variant="h4"
                 sx={(theme) => ({
@@ -47,16 +47,17 @@ const DashboardContainer = () => {
                 Username
               </Typography>
               <Typography
-                variant="h6"
+                variant="body1"
                 sx={(theme) => ({
                   color: theme.palette.text.primary,
+                  mt: '2em',
                 })}
               >
                 This is the Waldo dashboard. It helps you get a quick overview of your current scans, analytics, and
                 more.
               </Typography>
-            </div>
-            <div
+            </Grid>
+            <Grid
               style={{
                 marginLeft: '1em',
                 // marginRight: '',
@@ -74,7 +75,7 @@ const DashboardContainer = () => {
                     height: '100%',
                   })}
                 >
-                  <div
+                  <Grid
                     style={{
                       display: 'grid',
                       gridTemplate: '1fr 5fr / 100%',
@@ -82,17 +83,17 @@ const DashboardContainer = () => {
                       padding: '1em',
                     }}
                   >
-                    <div>
+                    <Grid>
                       <Typography>Pending Scans</Typography>
                       {/* <Typography>Up to 4 pending videos at a time</Typography> */}
-                    </div>
-                    <div></div>
-                  </div>
+                    </Grid>
+                    <Grid></Grid>
+                  </Grid>
                 </Box>
               </Paper>
-            </div>
-          </div>
-          <div
+            </Grid>
+          </Grid>
+          <Grid
             style={{
               // backgroundColor: 'pink',
               marginTop: '1em',
@@ -107,9 +108,9 @@ const DashboardContainer = () => {
             >
               <Box></Box>
             </Paper>
-          </div>
-        </div>
-        <div
+          </Grid>
+        </Grid>
+        <Grid
           className="dashboard-container-subcontainer-grid"
           style={{
             // backgroundColor: 'cyan',
@@ -117,23 +118,23 @@ const DashboardContainer = () => {
             gridTemplate: '55% 45% / 100%',
           }}
         >
-          <div />
-          <div
+          <Grid />
+          <Grid
             className="dashboard-container-subcontainer-subcontainer-grid"
             style={{
               display: 'grid',
               gridTemplate: '100% / 50% 50%',
             }}
           >
-            <div
+            <Grid
               style={{
                 display: 'grid',
                 gridTemplate: ' 50% 50% / 100%',
               }}
-            ></div>
-          </div>
-        </div>
-      </div>
+            ></Grid>
+          </Grid>
+        </Grid>
+      </Grid>
     </>
   );
 };
@@ -141,12 +142,12 @@ const DashboardContainer = () => {
 const Container = () => {
   return (
     <>
-      <div
+      <Grid
         className="container-layer-0"
         style={{
           display: 'flex',
           flex: '1 1 auto',
-          padding: '2em',
+          padding: '4rem',
 
           // backgroundColor: 'pink',
           justifyContent: 'center',
@@ -155,17 +156,20 @@ const Container = () => {
           // gridTemplate: '85% 15% / 100%',
         }}
       >
-        <div
+        <Grid
           style={{
             // backgroundColor: 'purple',
             height: '90%',
-            width: '80%',
+            width: '85%',
           }}
         >
           <DashboardContainer />
-        </div>
-        <div style={{ backgroundColor: 'white', height: '10%', width: '100%', opacity: '0.2' }} />
-      </div>
+        </Grid>
+        <Grid container height='10%' width='100%' >
+          <Paper sx={(theme) => ({ height: '100%', width: '100%', backgroundColor: theme.palette.background.paper})}>
+          </Paper>
+        </Grid>
+      </Grid>
     </>
   );
 };
